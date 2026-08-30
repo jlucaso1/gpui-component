@@ -239,6 +239,7 @@ impl DialogStory {
                                         )
                                         .child(
                                             h_flex()
+                                                .items_center()
                                                 .gap_2()
                                                 .child(DialogClose::new().child(
                                                     Button::new("cancel").label("Cancel").outline(),
@@ -258,7 +259,7 @@ impl DialogStory {
     }
 
     fn render_focus_return_check(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        h_flex().w_full().justify_center().child(
+        h_flex().items_center().w_full().justify_center().child(
             v_flex()
                 .w_full()
                 .max_w_96()
@@ -281,6 +282,7 @@ impl DialogStory {
                 )
                 .child(
                     h_flex()
+                        .items_center()
                         .w_full()
                         .gap_2()
                         .child(

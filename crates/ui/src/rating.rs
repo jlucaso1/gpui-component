@@ -136,6 +136,7 @@ impl RenderOnce for Rating {
         let value = state.read(cx).value;
 
         h_flex()
+            .items_center()
             .id(id)
             .flex_nowrap()
             .refine_style(&self.style)

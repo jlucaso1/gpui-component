@@ -115,6 +115,7 @@ impl Render for Example {
                 .child(Textarea::new(&self.editor).bordered(false).h(relative(1.)))
                 .child(
                     h_flex()
+                        .items_center()
                         .justify_between()
                         .text_sm()
                         .bg(cx.theme().secondary)
@@ -123,7 +124,7 @@ impl Render for Example {
                         .border_t_1()
                         .border_color(cx.theme().border)
                         .text_color(cx.theme().muted_foreground)
-                        .child(h_flex().gap_3().child({
+                        .child(h_flex().items_center().gap_3().child({
                             Button::new("soft-wrap")
                                 .ghost()
                                 .xsmall()

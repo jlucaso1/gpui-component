@@ -940,7 +940,13 @@ impl Example {
                         .py_0p5()
                         .px_2()
                         .pl(px(16.) * entry.depth() + px(8.))
-                        .child(h_flex().gap_2().child(icon).child(item.label.clone()))
+                        .child(
+                            h_flex()
+                                .items_center()
+                                .gap_2()
+                                .child(icon)
+                                .child(item.label.clone()),
+                        )
                         .on_click(cx.listener({
                             let item = item.clone();
                             move |_, _, _window, cx| {

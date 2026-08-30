@@ -1313,7 +1313,7 @@ where
         _: &mut Window,
         cx: &mut Context<Self>,
     ) -> Div {
-        let el = h_flex().h_full();
+        let el = h_flex().items_center().h_full();
         let selectable = self.col_selectable
             && self
                 .col_groups
@@ -1676,6 +1676,7 @@ where
 
         header
             .h_flex()
+            .items_center()
             .w_full()
             .flex_shrink_0()
             .bg(cx.theme().tokens.table_head)
@@ -1717,12 +1718,14 @@ where
                 // Render left fixed columns
                 this.child(
                     h_flex()
+                        .items_center()
                         .relative()
                         .h_full()
                         .bg(cx.theme().tokens.table_head)
                         .child(v_flex().min_w_full().flex_shrink_0().children(
                             layout.iter().enumerate().map(|(_row_ix, row_cells)| {
                                 h_flex()
+                                    .items_center()
                                     .min_w_full()
                                     .h(self.options.size.table_row_height())
                                     .border_b_1()
@@ -1774,6 +1777,7 @@ where
             .child(
                 // Columns
                 h_flex()
+                    .items_center()
                     .id("table-head")
                     .size_full()
                     .overflow_scroll()
@@ -1784,6 +1788,7 @@ where
                         layout.iter().enumerate().map(|(row_ix, row_cells)| {
                             let is_leaf_row = row_ix + 1 == layout_len;
                             h_flex()
+                                .items_center()
                                 .min_w_full()
                                 .h(self.options.size.table_row_height())
                                 .border_b_1()
@@ -1882,6 +1887,7 @@ where
             let style = tr.style().clone();
 
             tr.h_flex()
+                .items_center()
                 .w_full()
                 .h(row_height)
                 .when(need_render_border, |this| {
@@ -1903,6 +1909,7 @@ where
                     // Left fixed columns
                     this.child(
                         h_flex()
+                            .items_center()
                             .relative()
                             .h_full()
                             .children({
@@ -1994,6 +2001,7 @@ where
                 })
                 .child(
                     h_flex()
+                        .items_center()
                         .flex_1()
                         .h_full()
                         .overflow_hidden()
@@ -2161,6 +2169,7 @@ where
             self.delegate
                 .render_tr(row_ix, window, cx)
                 .h_flex()
+                .items_center()
                 .w_full()
                 .h(row_height)
                 .border_b_1()
@@ -2178,6 +2187,7 @@ where
                 })
                 .children((0..columns_count).map(|col_ix| {
                     h_flex()
+                        .items_center()
                         .left(horizontal_scroll_handle.offset().x)
                         .child(self.render_cell(None, col_ix, window, cx))
                 }))
@@ -2369,79 +2379,86 @@ where
                     this.children(empty_view)
                 } else {
                     this.child(
-                        h_flex().id("table-body").flex_grow_1().size_full().child(
-                            uniform_list(
-                                "table-uniform-list",
-                                render_rows_count,
-                                cx.processor(
-                                    move |table, visible_range: Range<usize>, window, cx| {
-                                        // Use `col.width` (always up-to-date) rather than
-                                        // `col.bounds.size.width`, which is only set after
-                                        // prepaint and is therefore zero on the first frame.
-                                        let col_sizes: Rc<Vec<gpui::Size<Pixels>>> = Rc::new(
-                                            table
-                                                .col_groups
-                                                .iter()
-                                                .skip(left_columns_count)
-                                                .map(|col| gpui::Size {
-                                                    width: col.width,
-                                                    height: px(0.),
-                                                })
-                                                .collect(),
-                                        );
-
-                                        table.load_more_if_need(
-                                            rows_count,
-                                            visible_range.end,
-                                            window,
-                                            cx,
-                                        );
-                                        table.update_visible_range_if_need(
-                                            visible_range.clone(),
-                                            Axis::Vertical,
-                                            window,
-                                            cx,
-                                        );
-
-                                        if visible_range.end > rows_count {
-                                            table.scroll_to_row(
-                                                std::cmp::min(
-                                                    visible_range.start,
-                                                    rows_count.saturating_sub(1),
-                                                ),
-                                                cx,
-                                            );
-                                        }
-
-                                        let mut items = Vec::with_capacity(
-                                            visible_range.end.saturating_sub(visible_range.start),
-                                        );
-
-                                        // Render fake rows to fill the table
-                                        visible_range.for_each(|row_ix| {
-                                            // Render real rows for available data
-                                            items.push(table.render_table_row(
-                                                row_ix,
-                                                rows_count,
-                                                left_columns_count,
-                                                col_sizes.clone(),
-                                                columns_count,
-                                                is_filled,
-                                                window,
-                                                cx,
-                                            ));
-                                        });
-
-                                        items
-                                    },
-                                ),
-                            )
+                        h_flex()
+                            .items_center()
+                            .id("table-body")
                             .flex_grow_1()
                             .size_full()
-                            .with_sizing_behavior(ListSizingBehavior::Auto)
-                            .track_scroll(&self.vertical_scroll_handle)
-                            .into_any_element(),
-                        ),
+                            .child(
+                                uniform_list(
+                                    "table-uniform-list",
+                                    render_rows_count,
+                                    cx.processor(
+                                        move |table, visible_range: Range<usize>, window, cx| {
+                                            // Use `col.width` (always up-to-date) rather than
+                                            // `col.bounds.size.width`, which is only set after
+                                            // prepaint and is therefore zero on the first frame.
+                                            let col_sizes: Rc<Vec<gpui::Size<Pixels>>> = Rc::new(
+                                                table
+                                                    .col_groups
+                                                    .iter()
+                                                    .skip(left_columns_count)
+                                                    .map(|col| gpui::Size {
+                                                        width: col.width,
+                                                        height: px(0.),
+                                                    })
+                                                    .collect(),
+                                            );
+
+                                            table.load_more_if_need(
+                                                rows_count,
+                                                visible_range.end,
+                                                window,
+                                                cx,
+                                            );
+                                            table.update_visible_range_if_need(
+                                                visible_range.clone(),
+                                                Axis::Vertical,
+                                                window,
+                                                cx,
+                                            );
+
+                                            if visible_range.end > rows_count {
+                                                table.scroll_to_row(
+                                                    std::cmp::min(
+                                                        visible_range.start,
+                                                        rows_count.saturating_sub(1),
+                                                    ),
+                                                    cx,
+                                                );
+                                            }
+
+                                            let mut items = Vec::with_capacity(
+                                                visible_range
+                                                    .end
+                                                    .saturating_sub(visible_range.start),
+                                            );
+
+                                            // Render fake rows to fill the table
+                                            visible_range.for_each(|row_ix| {
+                                                // Render real rows for available data
+                                                items.push(table.render_table_row(
+                                                    row_ix,
+                                                    rows_count,
+                                                    left_columns_count,
+                                                    col_sizes.clone(),
+                                                    columns_count,
+                                                    is_filled,
+                                                    window,
+                                                    cx,
+                                                ));
+                                            });
+
+                                            items
+                                        },
+                                    ),
+                                )
+                                .flex_grow_1()
+                                .size_full()
+                                .with_sizing_behavior(ListSizingBehavior::Auto)
+                                .track_scroll(&self.vertical_scroll_handle)
+                                .into_any_element(),
+                            ),
                     )
                 }
             });

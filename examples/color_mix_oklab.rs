@@ -38,7 +38,7 @@ impl Render for ColorMixDemo {
                     .gap_2()
                     .child("Oklab mix with transparent (使用 premultiplied alpha):")
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .gap_2()
                             .child(
                                 div()
@@ -100,7 +100,7 @@ impl Render for ColorMixDemo {
                     .gap_2()
                     .child("比较 HSL 和 Oklab 混合的差异 (50% transparent):")
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .gap_4()
                             .child(
                                 v_flex()

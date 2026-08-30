@@ -130,6 +130,7 @@ impl Render for TooltipStory {
                     .description("Describe text and icon-only toggles.")
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_2()
                             .child(Toggle::new("toggle1").label("Bold").tooltip("Toggle bold"))
                             .child(
@@ -167,6 +168,7 @@ impl Render for TooltipStory {
                     .description("Dismiss cleanly when the trigger leaves the view.")
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_2()
                             .when(self.removable_button_visible, |this| {
                                 this.child(

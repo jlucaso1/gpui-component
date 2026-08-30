@@ -119,6 +119,7 @@ impl Pagination {
             .when(!self.compact, |this| {
                 this.child(
                     h_flex()
+                        .items_center()
                         .w_full()
                         .gap_2()
                         .flex_nowrap()

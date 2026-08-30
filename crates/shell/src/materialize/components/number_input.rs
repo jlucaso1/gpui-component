@@ -294,7 +294,7 @@ impl Decoration {
         let mut button = with_active_and_focus(button, &self.states);
         if let Some(axis) = self.flex {
             button = match axis {
-                gpui::Axis::Horizontal => button.h_flex(),
+                gpui::Axis::Horizontal => button.h_flex().items_center(),
                 gpui::Axis::Vertical => button.v_flex(),
             };
         }

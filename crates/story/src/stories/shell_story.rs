@@ -1033,6 +1033,7 @@ impl ShellStory {
             ))
             .child(
                 h_flex()
+                    .items_center()
                     .gap(rems(0.25))
                     // Outline, not primary. Both are ordinary toolbar commands
                     // — neither is the action this panel exists to submit — and
@@ -1181,6 +1182,7 @@ impl ShellStory {
             .gap_2()
             .child(
                 h_flex()
+                    .items_center()
                     .w_full()
                     .gap_6()
                     .child(reading(
@@ -1407,6 +1409,7 @@ impl Render for ShellStory {
                             section("JavaScript · gpui-shell")
                                 .sub_title(
                                     h_flex()
+                                        .items_center()
                                         .gap(rems(0.25))
                                         .child(pause_button(
                                             "pause-script",

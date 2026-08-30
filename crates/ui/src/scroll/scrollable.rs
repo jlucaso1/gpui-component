@@ -488,6 +488,7 @@ mod tests {
     impl Render for HorizontalGapLayoutTest {
         fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
             crate::h_flex()
+                .items_center()
                 .w(px(100.))
                 .h(px(40.))
                 .gap(px(10.))
@@ -518,6 +519,7 @@ mod tests {
     impl Render for OverflowScrollbarHorizontalTest {
         fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
             crate::h_flex()
+                .items_center()
                 .w(px(100.))
                 .h(px(40.))
                 .gap(px(10.))
@@ -533,6 +535,7 @@ mod tests {
     impl Render for IndependentScrollablesTest {
         fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
             crate::h_flex()
+                .items_center()
                 .w(px(220.))
                 .h(px(100.))
                 .gap(px(20.))
@@ -748,6 +751,7 @@ mod tests {
         impl Render for HorizontalNoOverflowTest {
             fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
                 crate::h_flex()
+                    .items_center()
                     .w(px(100.))
                     .h(px(40.))
                     .gap(px(10.))
@@ -786,6 +790,7 @@ mod tests {
         fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
             crate::v_flex().w(px(100.)).children((0..2).map(|ix| {
                 crate::h_flex()
+                    .items_center()
                     .w(px(100.))
                     .h(px(40.))
                     .overflow_x_scrollbar()

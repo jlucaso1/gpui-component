@@ -265,6 +265,7 @@ impl SidebarItem for SidebarMenuItem {
             .w_full()
             .child(
                 h_flex()
+                    .items_center()
                     .size_full()
                     .id("item")
                     .overflow_x_hidden()
@@ -295,12 +296,14 @@ impl SidebarItem for SidebarMenuItem {
                         this.h_7()
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .flex_1()
                                     .gap_x_2()
                                     .justify_between()
                                     .overflow_x_hidden()
                                     .child(
                                         h_flex()
+                                            .items_center()
                                             .flex_1()
                                             .overflow_x_hidden()
                                             .child(self.label.clone()),

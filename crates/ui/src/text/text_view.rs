@@ -1070,7 +1070,13 @@ mod tests {
                 .size_full()
                 .p_4()
                 .gap_4()
-                .child(h_flex().max_w(px(480.)).gap_3().child("header"))
+                .child(
+                    h_flex()
+                        .items_center()
+                        .max_w(px(480.))
+                        .gap_3()
+                        .child("header"),
+                )
                 .child(
                     v_flex()
                         .flex_1()

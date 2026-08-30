@@ -173,6 +173,7 @@ impl Render for TabsStory {
                         .border_color(cx.theme().border)
                         .prefix(
                             h_flex()
+                                .items_center()
                                 .mx_1()
                                 .child(
                                     Button::new("back")
@@ -197,6 +198,7 @@ impl Render for TabsStory {
                         .child(Tab::new().label("License"))
                         .suffix(
                             h_flex()
+                                .items_center()
                                 .mx_1()
                                 .child(Button::new("inbox").ghost().xsmall().icon(IconName::Inbox))
                                 .child(

@@ -213,6 +213,7 @@ fn variable_rows() -> impl Iterator<Item = CommandItem> {
     [
         CommandItem::new().label("small-row").child(|_, _| {
             h_flex()
+                .items_center()
                 .w_full()
                 .py_1()
                 .child(div().text_sm().child("Compact custom row"))
@@ -637,7 +638,7 @@ impl Render for CommandStory {
                                                         });
                                                     })
                                                     .header(|state, _, cx| {
-                                                        h_flex()
+                                                        h_flex().items_center()
                                                             .justify_between()
                                                             .px_3()
                                                             .py_2()

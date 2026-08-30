@@ -288,6 +288,7 @@ impl TabGroupSkin {
         let panel = handle.map(|handle| handle.panel());
 
         h_flex()
+            .items_center()
             .gap_1()
             .occlude()
             .when_some(buttons, |this, buttons| {
@@ -370,6 +371,7 @@ impl TabGroupSkin {
         let drag = tab_drag(group, ix, cx);
 
         h_flex()
+            .items_center()
             .justify_between()
             .h(px(30.))
             .py_2()
@@ -383,6 +385,7 @@ impl TabGroupSkin {
             .when(has_leading, |this| {
                 this.child(
                     h_flex()
+                        .items_center()
                         .flex_shrink_0()
                         .mr_1()
                         .gap_1()
@@ -416,6 +419,7 @@ impl TabGroupSkin {
             .children(handle.and_then(|handle| handle.title_suffix(window, cx)))
             .child(
                 h_flex()
+                    .items_center()
                     .flex_shrink_0()
                     .ml_1()
                     .gap_1()

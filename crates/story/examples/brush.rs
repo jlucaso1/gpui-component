@@ -383,6 +383,7 @@ impl Render for BrushStory {
                                 .child(h_flex().gap_2().items_center().child("Color:"))
                                 .child(
                                     h_flex()
+                                        .items_center()
                                         .gap_3()
                                         .flex_wrap()
                                         .child(self.color_button(black(), "Black", cx))
@@ -418,6 +419,7 @@ fn section(title: impl Into<SharedString>) -> GroupBox {
         .outline()
         .title(
             h_flex()
+                .items_center()
                 .justify_between()
                 .w_full()
                 .gap_4()

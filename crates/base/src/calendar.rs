@@ -710,7 +710,7 @@ impl RenderOnce for Calendar {
         });
 
         let mut body = match picker_grid_layout(view) {
-            None => h_flex().justify_around(),
+            None => h_flex().items_center().justify_around(),
             Some((columns, horizontal_gap)) => {
                 div().grid().grid_cols(columns).gap_x(px(horizontal_gap))
             }
@@ -720,7 +720,7 @@ impl RenderOnce for Calendar {
                 let (year, month_number) = self.state.read(cx).offset_year_month(offset);
                 let weeks = days_in_month(year, month_number, self.first_day_of_week);
                 let mut month = v_flex();
-                let mut header_row = h_flex();
+                let mut header_row = h_flex().items_center();
                 for weekday in 0..7 {
                     let st = CalendarItemState::new(CalendarItemKind::Weekday)
                         .muted(true)
@@ -735,7 +735,7 @@ impl RenderOnce for Calendar {
                 }
                 month = month.child(header_row);
                 for (week_index, week) in weeks.iter().enumerate() {
-                    let mut week_row = h_flex();
+                    let mut week_row = h_flex().items_center();
                     for date in week {
                         let date = *date;
                         let st = {

@@ -290,6 +290,7 @@ impl RenderOnce for DescriptionList {
             .children(rows.into_iter().enumerate().map(|(ix, items)| {
                 let is_last = ix == rows_len - 1;
                 h_flex()
+                    .items_center()
                     .when(self.bordered && !is_last, |this| {
                         this.border_b_1().border_color(cx.theme().border)
                     })

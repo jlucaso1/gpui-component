@@ -81,6 +81,7 @@ impl RenderOnce for SidebarHeader {
         self.base
             .id("sidebar-header")
             .h_flex()
+            .items_center()
             .gap_2()
             .p_2()
             .w_full()

@@ -130,6 +130,7 @@ impl Render for DropdownButtonStory {
             ))
             .child(
                 h_flex()
+                    .items_center()
                     .gap_1()
                     .text_sm()
                     .text_color(cx.theme().muted_foreground)

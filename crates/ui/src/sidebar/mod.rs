@@ -427,6 +427,7 @@ impl<E: SidebarItem> RenderOnce for Sidebar<E> {
             .when_some(self.header.take(), |this, header| {
                 this.child(
                     h_flex()
+                        .items_center()
                         .id("header")
                         .pt_3()
                         .px_3()
@@ -473,6 +474,7 @@ impl<E: SidebarItem> RenderOnce for Sidebar<E> {
             .when_some(self.footer.take(), |this, footer| {
                 this.child(
                     h_flex()
+                        .items_center()
                         .id("footer")
                         .pb_3()
                         .px_3()

@@ -14,6 +14,7 @@ impl Render for Example {
                 // Render custom title bar on top of Root view.
                 TitleBar::new().child(
                     h_flex()
+                        .items_center()
                         .w_full()
                         .pr_2()
                         .justify_between()

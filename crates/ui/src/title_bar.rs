@@ -369,6 +369,7 @@ impl RenderOnce for TitleBar {
                 }))
                 .child(
                     h_flex()
+                        .items_center()
                         .id("bar")
                         .h_full()
                         .justify_between()

@@ -222,7 +222,7 @@ impl ColorPicker {
         v_flex()
             .gap_3()
             .child(
-                h_flex().gap_1().children(
+                h_flex().items_center().gap_1().children(
                     featured_colors
                         .iter()
                         .map(|color| self.render_item(*color, cx)),
@@ -233,7 +233,7 @@ impl ColorPicker {
                 v_flex()
                     .gap_1()
                     .children(color_palettes().iter().map(|sub_colors| {
-                        h_flex().gap_1().children(
+                        h_flex().items_center().gap_1().children(
                             sub_colors
                                 .iter()
                                 .rev()
@@ -411,6 +411,7 @@ impl ColorPicker {
 
     fn render_slider_track(&self, colors: Vec<Hsla>, _: &App) -> impl IntoElement {
         h_flex()
+            .items_center()
             .absolute()
             .left_0()
             .right_0()
@@ -577,6 +578,7 @@ impl RenderOnce for ColorPickerButton {
     fn render(self, _: &mut Window, cx: &mut App) -> impl IntoElement {
         let has_icon = self.icon.is_some();
         h_flex()
+            .items_center()
             .id(self.id)
             .gap_2()
             .children(self.icon)

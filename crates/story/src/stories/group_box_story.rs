@@ -112,6 +112,7 @@ impl Render for GroupBoxStory {
                         .title("Contributions & activity")
                         .child(
                             h_flex()
+                                .items_center()
                                 .justify_between()
                                 .child("Make profile private and hide activity")
                                 .child(
@@ -125,6 +126,7 @@ impl Render for GroupBoxStory {
                         )
                         .child(
                             h_flex()
+                                .items_center()
                                 .justify_between()
                                 .child("Include private contributions on my profile")
                                 .child(
@@ -162,6 +164,7 @@ impl Render for GroupBoxStory {
                 section("Without Title").w_128().child(
                     GroupBox::new().outline().child(
                         h_flex()
+                            .items_center()
                             .justify_between()
                             .child("Make profile private and hide activity")
                             .child(

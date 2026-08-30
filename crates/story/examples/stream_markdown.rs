@@ -91,16 +91,14 @@ impl Render for Example {
             .p_4()
             .gap_4()
             .child(
-                h_flex()
-                    .w_full()
-                    .child(
-                        Button::new("replay")
-                            .outline()
-                            .label("Replay")
-                            .on_click(cx.listener(move |this, _, window, cx| {
-                                this.replay(window, cx);
-                            })),
-                    ),
+                h_flex().items_center().w_full().child(
+                    Button::new("replay")
+                        .outline()
+                        .label("Replay")
+                        .on_click(cx.listener(move |this, _, window, cx| {
+                            this.replay(window, cx);
+                        })),
+                ),
             )
             .child(
                 div()

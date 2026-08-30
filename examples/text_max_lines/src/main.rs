@@ -192,7 +192,7 @@ impl Render for MaxLinesExample {
                                 )
                                 .when(clamped || expanded, |this| {
                                     this.child(
-                                        h_flex().child(
+                                        h_flex().items_center().child(
                                             Button::new("toggle")
                                                 .ghost()
                                                 .small()

@@ -225,6 +225,7 @@ impl Render for AccordionStory {
                                                 )
                                                 .child(
                                                     h_flex()
+                                                        .items_center()
                                                         .gap_4()
                                                         .child(
                                                             Switch::new("switch1").label("Switch"),

@@ -249,7 +249,7 @@ impl RenderOnce for Field {
             if layout.is_vertical() {
                 v_flex()
             } else {
-                h_flex()
+                h_flex().items_center()
             }
         }
 
@@ -304,6 +304,7 @@ impl RenderOnce for Field {
                                 .when_some(self.label, |this, builder| {
                                     this.child(
                                         h_flex()
+                                            .items_center()
                                             .gap_1()
                                             .child(
                                                 div()

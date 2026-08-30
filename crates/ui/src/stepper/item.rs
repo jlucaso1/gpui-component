@@ -126,7 +126,9 @@ impl RenderOnce for StepperItem {
             .role(Role::ListItem)
             .aria_position_in_set(self.step + 1)
             .relative()
-            .when(self.layout.is_horizontal(), |this| this.h_flex())
+            .when(self.layout.is_horizontal(), |this| {
+                this.h_flex().items_center()
+            })
             .when(self.layout.is_vertical(), |this| this.v_flex())
             .when(!self.is_last, |this| this.flex_1())
             .when(self.text_center, |this| this.flex_1().justify_center())

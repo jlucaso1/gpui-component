@@ -197,7 +197,7 @@ impl RenderOnce for CompanyListItem {
                         },
                     )
                     .child(
-                        h_flex().gap_2().child(
+                        h_flex().items_center().gap_2().child(
                             v_flex()
                                 .gap_1()
                                 .max_w(px(500.))
@@ -218,7 +218,7 @@ impl RenderOnce for CompanyListItem {
                                     .child(self.company.last_done_str.clone()),
                             )
                             .child(
-                                h_flex().w(px(65.)).justify_end().child(
+                                h_flex().items_center().w(px(65.)).justify_end().child(
                                     div()
                                         .rounded(cx.theme().radius)
                                         .whitespace_nowrap()
@@ -401,6 +401,7 @@ impl ListDelegate for CompanyListDelegate {
 
         Some(
             h_flex()
+                .items_center()
                 .pb_1()
                 .px_2()
                 .gap_2()

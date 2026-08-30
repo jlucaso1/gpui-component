@@ -66,6 +66,7 @@ impl RenderOnce for LoadingRow {
             })
             .child(
                 h_flex()
+                    .items_center()
                     .gap_3()
                     .flex_1()
                     .child(

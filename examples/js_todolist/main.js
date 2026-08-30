@@ -189,7 +189,7 @@ export default class TodoList extends View {
       .justify_between()
       .px(SPACE.md)
       .py(SPACE.sm)
-      .child(h_flex().gap(SPACE.xs).children(filters))
+      .child(h_flex().items_center().gap(SPACE.xs).children(filters))
       .child(
         button("clear", "Clear completed…", (_event, cx) => this.clearCompleted(cx), cx, {
           variant: "danger",

@@ -149,7 +149,7 @@ impl SidebarStory {
                     ),
             )
             .child(
-                h_flex().w_full().gap_3().children(
+                h_flex().items_center().w_full().gap_3().children(
                     [
                         ("Active projects", "12", "+2 this week"),
                         ("Team members", "28", "4 online"),
@@ -633,6 +633,7 @@ impl Render for SidebarStory {
                             .justify_between()
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .gap_2()
                                     .child(IconName::CircleUser)
                                     .when(!icon_collapsed, |this| this.child("Jason Lee")),

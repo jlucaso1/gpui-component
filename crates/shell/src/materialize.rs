@@ -739,7 +739,7 @@ fn materialize_component(
         ),
         Component::HFlex => flex_element(
             runtime,
-            h_flex(),
+            h_flex().items_center(),
             id,
             refinement,
             behavior,

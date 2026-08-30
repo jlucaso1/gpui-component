@@ -1281,7 +1281,7 @@ impl Render for Example {
                                                 let code = code_block.code();
                                                 let lang = code_block.lang();
 
-                                                h_flex()
+                                                h_flex().items_center()
                                                     .gap_1()
                                                     .child(
                                                         Clipboard::new("copy").value(code.clone()),

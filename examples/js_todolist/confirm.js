@@ -20,7 +20,7 @@ export default (count, cx, onConfirm) => () =>
     .child(label(`Delete ${count} completed ${count === 1 ? "item" : "items"}?`, cx))
     .child(muted("This cannot be undone.", cx))
     .child(
-      h_flex()
+      h_flex().items_center()
         .justify_end()
         .gap(SPACE.sm)
         .pt(SPACE.sm)

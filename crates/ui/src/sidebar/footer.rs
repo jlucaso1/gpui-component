@@ -17,7 +17,7 @@ impl SidebarFooter {
     /// Create a new [`SidebarFooter`].
     pub fn new() -> Self {
         Self {
-            base: h_flex().gap_2().w_full(),
+            base: h_flex().items_center().gap_2().w_full(),
             selected: false,
             collapsed: false,
         }
@@ -69,6 +69,7 @@ impl DropdownMenu for SidebarFooter {}
 impl RenderOnce for SidebarFooter {
     fn render(self, _: &mut gpui::Window, cx: &mut gpui::App) -> impl gpui::IntoElement {
         h_flex()
+            .items_center()
             .id("sidebar-footer")
             .gap_2()
             .p_2()

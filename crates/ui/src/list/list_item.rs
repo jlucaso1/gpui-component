@@ -44,7 +44,7 @@ impl ListItem {
         let id: ElementId = id.into();
         Self {
             mode: ListItemMode::Entry,
-            base: h_flex().id(id),
+            base: h_flex().items_center().id(id),
             style: StyleRefinement::default(),
             disabled: false,
             selected: false,

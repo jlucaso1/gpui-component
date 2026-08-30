@@ -118,6 +118,7 @@ impl HoverCardStory {
             .w(px(520.))
             .child(
                 h_flex()
+                    .items_center()
                     .gap_4()
                     .child(
                         HoverCard::new("fast-open")
@@ -148,6 +149,7 @@ impl HoverCardStory {
                     .justify_center()
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .child(
                                 HoverCard::new("anchor-top-left")
@@ -171,6 +173,7 @@ impl HoverCardStory {
                     // Bottom row
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .child(
                                 HoverCard::new("anchor-bottom-left")

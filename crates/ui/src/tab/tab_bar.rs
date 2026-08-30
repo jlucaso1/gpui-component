@@ -491,6 +491,7 @@ impl RenderOnce for TabBar {
             .when_some(self.prefix, |this, prefix| this.child(prefix))
             .child(
                 h_flex()
+                    .items_center()
                     .id("tabs")
                     .flex_1()
                     .mx(-padding_x)
@@ -498,6 +499,7 @@ impl RenderOnce for TabBar {
                     .overflow_x_hidden()
                     .child(
                         h_flex()
+                            .items_center()
                             .id("tabs-inner")
                             .mx(-padding_x)
                             .px(padding_x)

@@ -53,6 +53,7 @@ impl Render for KbdStory {
                     .w(px(560.))
                     .child(
                         h_flex()
+                            .items_center()
                             .w_full()
                             .justify_center()
                             .gap_2()
@@ -73,6 +74,7 @@ impl Render for KbdStory {
                     .w(px(560.))
                     .child(
                         h_flex()
+                            .items_center()
                             .w_full()
                             .justify_center()
                             .gap_2()

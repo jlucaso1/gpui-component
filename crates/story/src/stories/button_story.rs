@@ -347,6 +347,7 @@ impl Render for ButtonStory {
                     .description("Buttons can show determinate progress.")
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .child(
                                 button("progress-button-1")

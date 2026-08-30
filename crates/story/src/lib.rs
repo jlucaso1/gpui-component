@@ -553,7 +553,7 @@ impl RenderOnce for StoryToolbar {
 
 pub(crate) fn story_toolbar_group() -> StoryToolbar {
     StoryToolbar {
-        base: h_flex().w_full().justify_end(),
+        base: h_flex().items_center().w_full().justify_end(),
         items: vec![],
     }
 }

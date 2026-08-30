@@ -66,6 +66,7 @@ impl Render for SeparatorStory {
                     .w(px(520.))
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .h(px(100.))
                             .child(Separator::vertical())
@@ -91,6 +92,7 @@ impl Render for SeparatorStory {
                             .child(Separator::horizontal())
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .gap_x_4()
                                     .child("Docs")
                                     .child(Separator::vertical().dashed())

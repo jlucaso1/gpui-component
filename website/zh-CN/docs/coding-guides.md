@@ -324,6 +324,11 @@ Async work 从 event、lifecycle hook 或具名 method 启动，不能作为 `re
 
 ## 布局、测量与滚动
 
+`h_flex` 与 `v_flex` 的交叉轴都保持 flexbox 自身的默认值 `stretch`。`h_flex` 过去会让子元素居中——
+一排控件确实需要这样，但一排等高的列不需要，而且这个差异在名字里完全看不出来：比行更高的列会被居中，
+于是它的顶部（通常是 header）被裁到窗口之外，且没有任何提示。一排控件请显式写 `items_center()`，
+一排列则什么都不写。
+
 大多数 UI 使用 GPUI layout，不应自行 measurement。Measurement 是 popup、virtualization、editor、resize handle、chart 等依赖 resolved geometry 行为的深层工具。
 
 - measurement 与 geometry 放在拥有行为的层；

@@ -60,6 +60,7 @@ impl Render for SkeletonStory {
                     .w(px(360.))
                     .child(
                         gpui_component::h_flex()
+                            .items_center()
                             .w_full()
                             .gap_3()
                             .child(Skeleton::new().size_12().rounded_full_style(cx))

@@ -318,6 +318,7 @@ impl CollapsibleStory {
                                             .bg(cx.theme().muted.opacity(0.6))
                                             .child(
                                                 h_flex()
+                                                    .items_center()
                                                     .justify_between()
                                                     .font_medium()
                                                     .child("$18.08 / $20")
@@ -328,6 +329,7 @@ impl CollapsibleStory {
                                     .content(v_flex().gap_2().children(USAGE_ITEMS.map(
                                         |(label, value)| {
                                             h_flex()
+                                                .items_center()
                                                 .justify_between()
                                                 .text_xs()
                                                 .font_medium()
@@ -341,6 +343,7 @@ impl CollapsibleStory {
                     )
                     .child(
                         h_flex()
+                            .items_center()
                             .absolute()
                             .bottom(px(-12.))
                             .left_0()
@@ -395,6 +398,7 @@ impl CollapsibleStory {
                             .children(NOTIFICATIONS.into_iter().enumerate().map(
                                 |(ix, (key, label))| {
                                     h_flex()
+                                        .items_center()
                                         .px_3()
                                         .py_2()
                                         .when(ix > 0, |this| this.border_t_1().border_color(border))
@@ -436,6 +440,7 @@ impl CollapsibleStory {
                         .open(self.is_open(API_KEYS))
                         .child(
                             h_flex()
+                                .items_center()
                                 .w_full()
                                 .gap_2()
                                 .child(

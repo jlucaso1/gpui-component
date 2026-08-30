@@ -189,9 +189,11 @@ impl Render for TextareaStory {
                         .child(Textarea::new(&self.textarea).h(px(320.)))
                         .child(
                             h_flex()
+                                .items_center()
                                 .justify_between()
                                 .child(
                                     h_flex()
+                                        .items_center()
                                         .gap_2()
                                         .child(
                                             Button::new("btn-insert-text")

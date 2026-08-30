@@ -77,6 +77,7 @@ pub trait ListDelegate: Sized + 'static {
         cx: &mut Context<ListState<Self>>,
     ) -> impl IntoElement {
         h_flex()
+            .items_center()
             .size_full()
             .justify_center()
             .text_color(cx.theme().muted_foreground.opacity(0.6))

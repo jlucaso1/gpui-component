@@ -372,7 +372,7 @@ impl RenderOnce for RadioGroup {
         let base = if self.layout.is_vertical() {
             v_flex()
         } else {
-            h_flex().w_full().flex_wrap()
+            h_flex().items_center().w_full().flex_wrap()
         };
 
         let total = self.radios.len();

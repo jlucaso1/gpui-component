@@ -867,6 +867,7 @@ impl Render for ComboboxStory {
                                 }
 
                                 h_flex()
+                                    .items_center()
                                     .w_full()
                                     .flex_wrap()
                                     .gap_1()

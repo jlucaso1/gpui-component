@@ -338,6 +338,7 @@ impl<M: crate::input::overlay::OverlayMode> Render for SearchPanel<M> {
             .border_color(cx.theme().border)
             .child(
                 h_flex()
+                    .items_center()
                     .w_full()
                     .gap_2()
                     .child(
@@ -429,6 +430,7 @@ impl<M: crate::input::overlay::OverlayMode> Render for SearchPanel<M> {
             .when(self.session.replace_mode && allow_replace, |this| {
                 this.child(
                     h_flex()
+                        .items_center()
                         .w_full()
                         .gap_2()
                         .child(

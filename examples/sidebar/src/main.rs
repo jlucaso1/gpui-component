@@ -122,6 +122,7 @@ impl Render for Example {
                     .footer(
                         SidebarFooter::new().child(
                             h_flex()
+                                .items_center()
                                 .gap_2()
                                 .child(IconName::CircleUser)
                                 .when(!icon_collapsed, |this| this.child("Jason Lee")),

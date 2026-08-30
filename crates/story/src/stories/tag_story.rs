@@ -56,6 +56,7 @@ impl Render for TagStory {
             .child(
                 section("Default").child(
                     h_flex()
+                        .items_center()
                         .gap_2()
                         .child(Tag::primary().with_size(self.size).child("Tag"))
                         .child(Tag::secondary().with_size(self.size).child("Secondary"))
@@ -73,6 +74,7 @@ impl Render for TagStory {
             .child(
                 section("Outline").child(
                     h_flex()
+                        .items_center()
                         .gap_2()
                         .child(Tag::primary().with_size(self.size).outline().child("Tag"))
                         .child(
@@ -106,6 +108,7 @@ impl Render for TagStory {
             .child(
                 section("Rounded").child(
                     h_flex()
+                        .items_center()
                         .gap_2()
                         .child(
                             Tag::primary()
@@ -148,6 +151,7 @@ impl Render for TagStory {
             .child(
                 section("Square").child(
                     h_flex()
+                        .items_center()
                         .gap_2()
                         .child(
                             Tag::primary()
@@ -190,16 +194,21 @@ impl Render for TagStory {
             .child(
                 section("Colors").w(px(640.)).child(
                     v_flex().w_full().gap_4().child(
-                        h_flex().w_full().gap_2().flex_wrap().children(
-                            ColorName::all()
-                                .into_iter()
-                                .filter(|color| *color != ColorName::Gray)
-                                .map(|color| {
-                                    Tag::color(color)
-                                        .with_size(self.size)
-                                        .child(color.to_string())
-                                }),
-                        ),
+                        h_flex()
+                            .items_center()
+                            .w_full()
+                            .gap_2()
+                            .flex_wrap()
+                            .children(
+                                ColorName::all()
+                                    .into_iter()
+                                    .filter(|color| *color != ColorName::Gray)
+                                    .map(|color| {
+                                        Tag::color(color)
+                                            .with_size(self.size)
+                                            .child(color.to_string())
+                                    }),
+                            ),
                     ),
                 ),
             )

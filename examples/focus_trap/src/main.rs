@@ -38,7 +38,7 @@ impl Render for Example {
                             .child("Outside Area (No Focus Trap)"),
                     )
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .gap_2()
                             .child(Button::new("outside-1").label("Outside Button 1"))
                             .child(Button::new("outside-2").label("Outside Button 2"))
@@ -51,7 +51,7 @@ impl Render for Example {
                     .gap_3()
                     .child(div().text_base().font_semibold().child("Focus Trap Area 1"))
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .gap_2()
                             .p_4()
                             .bg(cx.theme().secondary)
@@ -93,7 +93,7 @@ impl Render for Example {
                             .child("Outside Area (No Focus Trap)"),
                     )
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .gap_2()
                             .child(Button::new("outside-4").label("Outside Button 4"))
                             .child(Button::new("outside-5").label("Outside Button 5")),

@@ -416,6 +416,7 @@ impl SystemMonitor {
             .border_color(cx.theme().border)
             .child(
                 h_flex()
+                    .items_center()
                     .justify_between()
                     .py_1()
                     .px_3()

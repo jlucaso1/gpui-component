@@ -245,6 +245,7 @@ where
                     empty
                 } else {
                     h_flex()
+                        .items_center()
                         .justify_center()
                         .py_6()
                         .text_color(cx.theme().muted_foreground.opacity(0.6))

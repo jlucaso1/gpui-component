@@ -300,6 +300,7 @@ impl Render for SliderStory {
                             .items_center()
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .text_color(self.slider_hsl_value)
                                     .child(rgb.clone()),
                             )

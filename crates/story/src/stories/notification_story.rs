@@ -289,6 +289,7 @@ impl Render for NotificationStory {
                     .description("Keep separate unique notifications with keys.")
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_3()
                             .child(
                                 Button::new("show-notify-unique-key0")

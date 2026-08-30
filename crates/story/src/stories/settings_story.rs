@@ -341,6 +341,7 @@ impl SettingsStory {
                         .keywords(["Bar"]),
                         SettingItem::render(|options, _, _| {
                             h_flex()
+                                .items_center()
                                 .w_full()
                                 .justify_between()
                                 .flex_wrap()
@@ -367,9 +368,8 @@ impl SettingsStory {
                             "Density",
                             SettingField::render(|options, _window, cx| {
                                 let current = AppSettings::global(cx).density.clone();
-                                h_flex()
-                                    .gap_1()
-                                    .children(["Comfortable", "Compact"].map(|value| {
+                                h_flex().items_center().gap_1().children(
+                                    ["Comfortable", "Compact"].map(|value| {
                                         Button::new(value)
                                             .label(value)
                                             .with_size(options.size())
@@ -383,7 +383,8 @@ impl SettingsStory {
                                             .on_click(move |_, _, cx| {
                                                 AppSettings::global_mut(cx).density = value.into();
                                             })
-                                    }))
+                                    }),
+                                )
                             })
                             // A custom element field manages its own state, so reset
                             // support must be wired up explicitly via `on_reset`.

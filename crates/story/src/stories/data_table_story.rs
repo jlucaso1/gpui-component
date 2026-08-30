@@ -584,10 +584,10 @@ impl TableDelegate for StockTableDelegate {
                 this.table_cell_size(self.size)
             })
             .when(col.align == TextAlign::Center, |this| {
-                this.h_flex().w_full().justify_center()
+                this.h_flex().items_center().w_full().justify_center()
             })
             .when(col.align == TextAlign::Right, |this| {
-                this.h_flex().w_full().justify_end()
+                this.h_flex().items_center().w_full().justify_end()
             })
             .child(col.name.clone())
     }

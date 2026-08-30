@@ -75,6 +75,7 @@ impl RenderOnce for MenuItem {
         let highlights = vec![];
 
         h_flex()
+            .items_center()
             .id(self.ix)
             .gap_2()
             .p_1()

@@ -423,6 +423,7 @@ impl Render for DivInspector {
                         .gap_y_3()
                         .child(
                             h_flex()
+                                .items_center()
                                 .justify_between()
                                 .gap_x_2()
                                 .child("Rust Styles")
@@ -452,6 +453,7 @@ impl Render for DivInspector {
                         .flex_shrink_0()
                         .child(
                             h_flex()
+                                .items_center()
                                 .gap_x_2()
                                 .child(div().flex_1().child("JSON Styles"))
                                 .child(Button::new("json-reset").label("Reset").small().on_click(
@@ -497,6 +499,7 @@ fn render_inspector(
         .text_color(cx.theme().foreground)
         .child(
             h_flex()
+                .items_center()
                 .w_full()
                 .justify_between()
                 .gap_2()
@@ -509,6 +512,7 @@ fn render_inspector(
                 .bg(cx.theme().tokens.title_bar)
                 .child(
                     h_flex()
+                        .items_center()
                         .gap_2()
                         .text_sm()
                         .child(
@@ -544,6 +548,7 @@ fn render_inspector(
                 .when_some(source_location, |this, source_location| {
                     this.child(
                         h_flex()
+                            .items_center()
                             .gap_x_2()
                             .text_sm()
                             .child(

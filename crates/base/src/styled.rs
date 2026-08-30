@@ -31,9 +31,15 @@ impl From<Option<Role>> for RoleOverride {
     }
 }
 
+/// A row. Children keep their own height, as in CSS flexbox.
+///
+/// This used to centre its children on the cross axis. See [`StyledExt::h_flex`]
+/// for why it no longer does.
 pub fn h_flex() -> Div {
     div().h_flex()
 }
+
+/// A column. Children stretch to the row's width, as in CSS flexbox.
 pub fn v_flex() -> Div {
     div().v_flex()
 }
@@ -72,8 +78,25 @@ pub trait StyledExt: Styled + Sized {
         self
     }
 
+    /// Lays this element out as a row.
+    ///
+    /// The cross axis keeps flexbox's own default, `stretch`, which is also
+    /// what [`StyledExt::v_flex`] does. This used to be `items_center`, and the
+    /// asymmetry was invisible in the name: a column placed in an `h_flex` did
+    /// not fill the row's height, so a column taller than the row was centred
+    /// and its top — commonly a header — was clipped off the top of the window,
+    /// with nothing to say why.
+    ///
+    /// A row of controls almost always does want centring, so say so:
+    ///
+    /// ```
+    /// use gpui::{Styled as _, div};
+    /// use gpui_base::StyledExt as _;
+    ///
+    /// let toolbar = div().h_flex().items_center();
+    /// ```
     fn h_flex(self) -> Self {
-        self.flex().flex_row().items_center()
+        self.flex().flex_row()
     }
 
     fn v_flex(self) -> Self {

@@ -157,6 +157,7 @@ impl RenderOnce for DropdownButton {
         div()
             .id(self.id)
             .h_flex()
+            .items_center()
             .refine_style(&self.style)
             .when_some(self.button, |this, button| {
                 let disabled = self.disabled || button.is_disabled();

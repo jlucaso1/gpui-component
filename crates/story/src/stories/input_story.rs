@@ -433,6 +433,7 @@ impl Render for InputStory {
                     .w_128()
                     .child(
                         h_flex()
+                            .items_center()
                             .w_full()
                             .gap_4()
                             .flex_wrap()

@@ -119,6 +119,7 @@ impl AppMenuBar {
 impl Render for AppMenuBar {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         h_flex()
+            .items_center()
             .id("app-menu-bar")
             .role(Role::MenuBar)
             .key_context(CONTEXT)

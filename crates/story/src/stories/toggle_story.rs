@@ -72,6 +72,7 @@ impl Render for ToggleStory {
                     .gap_3()
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_2()
                             .child(
                                 Toggle::new("preview")

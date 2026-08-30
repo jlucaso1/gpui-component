@@ -67,6 +67,7 @@ impl Render for ClipboardStory {
                     .w(px(480.))
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_2()
                             .child(Label::new("A clipboard button"))
                             .child(

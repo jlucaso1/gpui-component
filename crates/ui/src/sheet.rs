@@ -189,6 +189,7 @@ impl RenderOnce for Sheet {
             .child(
                 // TitleBar
                 h_flex()
+                    .items_center()
                     .justify_between()
                     .pl_4()
                     .pr_3()
@@ -221,6 +222,7 @@ impl RenderOnce for Sheet {
                 // Footer
                 this.child(
                     h_flex()
+                        .items_center()
                         .justify_between()
                         .px_4()
                         .py_3()

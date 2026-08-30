@@ -94,6 +94,7 @@ impl Render for Example {
             .size_full()
             .child(
                 h_flex()
+                    .items_center()
                     .p_2()
                     .gap_2()
                     .border_b_1()

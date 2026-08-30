@@ -169,9 +169,11 @@ impl SettingPage {
                     .refine_style(&self.header_style)
                     .child(
                         h_flex()
+                            .items_center()
                             .justify_between()
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .gap_1()
                                     .child(self.title.clone())
                                     .when_some(self.title_suffix.clone(), |this, suffix| {

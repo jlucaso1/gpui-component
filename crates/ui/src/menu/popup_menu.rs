@@ -1292,6 +1292,7 @@ impl PopupMenu {
                         .when(show_link_icon, |this| {
                             this.child(
                                 h_flex()
+                                    .items_center()
                                     .w_full()
                                     .justify_between()
                                     .gap_1p5()

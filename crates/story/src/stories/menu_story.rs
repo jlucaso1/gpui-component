@@ -185,19 +185,23 @@ impl Render for MenuStory {
                                         check_side.is_some(),
                                         Box::new(ToggleCheck),
                                         |_, cx| {
-                                            h_flex().gap_1().child("Custom Element").child(
-                                                div()
-                                                    .text_xs()
-                                                    .text_color(cx.theme().muted_foreground)
-                                                    .child("checked"),
-                                            )
+                                            h_flex()
+                                                .items_center()
+                                                .gap_1()
+                                                .child("Custom Element")
+                                                .child(
+                                                    div()
+                                                        .text_xs()
+                                                        .text_color(cx.theme().muted_foreground)
+                                                        .child("checked"),
+                                                )
                                         },
                                     )
                                     .menu_element_with_icon(
                                         IconName::Info,
                                         Box::new(Info(0)),
                                         |_, cx| {
-                                            h_flex().gap_1().child("Custom").child(
+                                            h_flex().items_center().gap_1().child("Custom").child(
                                                 div()
                                                     .text_sm()
                                                     .text_color(cx.theme().muted_foreground)

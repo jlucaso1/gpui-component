@@ -308,6 +308,7 @@ impl Render for SelectStory {
                             .disabled(self.disabled)
                             .empty(|_, cx| {
                                 h_flex()
+                                    .items_center()
                                     .h_24()
                                     .justify_center()
                                     .text_color(cx.theme().muted_foreground)
@@ -322,6 +323,7 @@ impl Render for SelectStory {
                     .items_center()
                     .child(
                         h_flex()
+                            .items_center()
                             .border_1()
                             .border_color(cx.theme().input)
                             .rounded(cx.theme().radius_lg)

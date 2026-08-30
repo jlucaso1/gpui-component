@@ -26,7 +26,7 @@ impl Render for RootBorderlessExample {
                     ),
             )
             .child(
-                h_flex()
+                h_flex().items_center()
                     .gap_3()
                     .child(
                         div()

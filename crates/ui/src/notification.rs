@@ -414,6 +414,7 @@ impl Render for Notification {
         BaseToast::new("notification")
             .transition_status(transition_status)
             .h_flex()
+            .items_center()
             .group("")
             .occlude()
             .relative()

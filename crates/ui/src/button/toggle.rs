@@ -419,6 +419,7 @@ mod tests {
             let changes = self.changes.clone();
             let parent_clicks = self.parent_clicks.clone();
             h_flex()
+                .items_center()
                 .id("toggle-parent")
                 .tab_group()
                 .size(px(100.))

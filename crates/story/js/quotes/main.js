@@ -122,7 +122,7 @@ export default class QuoteBoard extends View {
       // is the only thing the heading's "N / M watched" does not already say.
       .child(muted(this.summaryLine(watched), cx))
       .child(
-        h_flex()
+        h_flex().items_center()
           .gap(SPACE.xs)
           .child(
             action("summary", "Summary", (_event, cx) => this.loadSummary(cx), cx, {

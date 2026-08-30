@@ -487,11 +487,15 @@ impl Render for SheetStory {
                     )
                     .when_some(self.selected_value.clone(), |this, selected_value| {
                         this.child(
-                            h_flex().gap_1().child("You have selected:").child(
-                                div()
-                                    .child(selected_value.to_string())
-                                    .text_color(gpui::red()),
-                            ),
+                            h_flex()
+                                .items_center()
+                                .gap_1()
+                                .child("You have selected:")
+                                .child(
+                                    div()
+                                        .child(selected_value.to_string())
+                                        .text_color(gpui::red()),
+                                ),
                         )
                     }),
             )

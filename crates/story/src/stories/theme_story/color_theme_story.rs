@@ -730,6 +730,7 @@ impl Render for ThemeColorsStory {
                     .flex_wrap()
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_2()
                             .child(div().w(px(300.)).child(Select::new(&self.select_state)))
                             .child(

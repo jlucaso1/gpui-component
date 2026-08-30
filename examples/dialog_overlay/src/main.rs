@@ -48,6 +48,7 @@ impl Render for HelloWorld {
                     .size_full()
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .child(
                                 Button::new("btn1")

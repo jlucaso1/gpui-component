@@ -112,7 +112,9 @@ impl RenderOnce for Stepper {
         div()
             .id(self.id)
             .w_full()
-            .when(self.layout.is_horizontal(), |this| this.h_flex())
+            .when(self.layout.is_horizontal(), |this| {
+                this.h_flex().items_center()
+            })
             .when(self.layout.is_vertical(), |this| this.v_flex())
             .refine_style(&self.style)
             .children(self.items.into_iter().enumerate().map(|(step, item)| {

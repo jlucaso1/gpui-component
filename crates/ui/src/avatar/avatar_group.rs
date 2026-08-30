@@ -80,6 +80,7 @@ impl RenderOnce for AvatarGroup {
 
         self.base
             .h_flex()
+            .items_center()
             .flex_row_reverse()
             .refine_style(&self.style)
             .children(if self.ellipsis && avatars_len > self.limit {

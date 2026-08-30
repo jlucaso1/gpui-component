@@ -109,6 +109,7 @@ impl Render for Tooltip {
             // Wrap in a child, to ensure the left margin is applied to the tooltip
             BaseTooltip::new("tooltip-popup")
                 .h_flex()
+                .items_center()
                 .font_family(cx.theme().font_family.clone())
                 .m_3()
                 .bg(cx.theme().tokens.popover)

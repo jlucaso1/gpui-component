@@ -204,7 +204,7 @@ impl Render for TreeStory {
             .on_action(cx.listener(Self::on_action_open))
             .on_action(cx.listener(Self::on_action_delete))
             .child(
-                h_flex().gap_3().child(
+                h_flex().items_center().gap_3().child(
                     Button::new("select-item")
                         .outline()
                         .label("Select Item")
@@ -246,6 +246,7 @@ impl Render for TreeStory {
                                                 .pl(px(16.) * entry.depth() + px(12.))
                                                 .child(
                                                     h_flex()
+                                                        .items_center()
                                                         .gap_2()
                                                         .child(icon)
                                                         .child(item.label.clone()),
@@ -277,6 +278,7 @@ impl Render for TreeStory {
                             )
                             .child(
                                 h_flex()
+                                    .items_center()
                                     .w_full()
                                     .justify_between()
                                     .gap_3()

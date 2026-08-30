@@ -94,7 +94,7 @@ export default class MotionBoard extends View {
           .items_center()
           .gap(12)
           .child(
-            h_flex()
+            h_flex().items_center()
               .id("motion-policy-segment")
               .gap(2)
               .p(2)
@@ -176,7 +176,7 @@ export default class MotionBoard extends View {
         .bg(cx.theme().colors.background)
         .opacity(active ? 1 : 0.72)
         .child(
-          h_flex()
+          h_flex().items_center()
             .w_full()
             .gap(6)
             .child(

@@ -90,6 +90,7 @@ impl Render for IconStory {
                     .w(px(480.))
                     .child(
                         h_flex()
+                            .items_center()
                             .gap_4()
                             .child(
                                 Button::new("like1")

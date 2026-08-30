@@ -124,6 +124,7 @@ impl TilesSkin {
         let panel = handle.map(|handle| handle.panel());
 
         h_flex()
+            .items_center()
             .gap_1()
             .flex_shrink_0()
             .occlude()
@@ -383,6 +384,7 @@ impl TilesRenderer for TilesSkin {
     /// itself has no size.
     fn panel_frame(&self, tile: &TileContext, _: &mut Window, _: &mut App) -> Stateful<Div> {
         h_flex()
+            .items_center()
             .id(("tile-panel", tile.panel_id().as_u64()))
             .overflow_hidden()
             .size_full()

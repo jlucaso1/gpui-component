@@ -203,6 +203,7 @@ impl Render for EditorStory {
             .gap_3()
             .child(
                 h_flex()
+                    .items_center()
                     .justify_between()
                     .child(
                         TabBar::new("editor-story-tabs")

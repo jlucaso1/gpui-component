@@ -510,6 +510,13 @@ or identity and reject stale work rather than applying it to new state.
 
 ## Layout, measurement, and scrolling
 
+`h_flex` and `v_flex` both leave the cross axis at flexbox's default, `stretch`.
+`h_flex` used to centre its children, which is what a row of controls wants but
+not what a row of full-height columns wants, and the difference was invisible in
+the name: a column taller than the row was centred, so its top — commonly a
+header — was clipped off the top of the window with nothing to say why. Say
+`items_center()` on a row of controls; say nothing on a row of columns.
+
 Most UI should use GPUI layout rather than measuring itself. Measurement is a
 deep behavior tool for popups, virtualization, editors, resize handles, charts,
 and similar components whose correctness depends on resolved geometry.

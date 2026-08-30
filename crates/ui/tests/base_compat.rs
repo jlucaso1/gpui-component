@@ -357,7 +357,7 @@ fn legacy_styled_and_sizing_exports_remain_available() {
 
     let _: gpui_component::Size = gpui_component::Size::Medium;
     let _ = gpui_component::StyledExt::font_medium(gpui::div());
-    let _ = gpui_component::h_flex();
+    let _ = gpui_component::h_flex().items_center();
     let _ = gpui_component::v_flex();
     let _ = gpui_component::box_shadow(0., 0., 0., 0., gpui::hsla(0., 0., 0., 0.));
 

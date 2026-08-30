@@ -40,7 +40,7 @@ impl Render for ProjectOverview {
                     .child(Icon::new(IconName::ChartNoAxesCombined)),
             )
             .child(
-                h_flex()
+                h_flex().items_center()
                     .gap_3()
                     .child(self.metric("Open tasks", "24"))
                     .child(self.metric("Completed", "86%"))
@@ -53,7 +53,7 @@ impl Render for ProjectOverview {
                     .rounded(cx.theme().radius_lg)
                     .bg(cx.theme().muted)
                     .child(
-                        h_flex()
+                        h_flex().items_center()
                             .justify_between()
                             .child("Release progress")
                             .child(format!("{}%", self.progress)),

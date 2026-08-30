@@ -136,6 +136,7 @@ pub trait TableDelegate: Sized + 'static {
         cx: &mut Context<TableState<Self>>,
     ) -> impl IntoElement {
         h_flex()
+            .items_center()
             .size_full()
             .justify_center()
             .text_color(cx.theme().muted_foreground.opacity(0.6))
@@ -190,7 +191,7 @@ pub trait TableDelegate: Sized + 'static {
         window: &mut Window,
         cx: &mut Context<TableState<Self>>,
     ) -> impl IntoElement {
-        h_flex().w_3().h_full().flex_shrink_0()
+        h_flex().items_center().w_3().h_full().flex_shrink_0()
     }
 
     /// Called when the visible range of the rows changed.

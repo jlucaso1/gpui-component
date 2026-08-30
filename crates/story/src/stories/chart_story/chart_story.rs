@@ -302,6 +302,7 @@ impl Render for ChartStory {
             )
             .child(
                 h_flex()
+                    .items_center()
                     .flex_wrap()
                     .gap_4()
                     .child(chart_container(
@@ -400,6 +401,7 @@ impl Render for ChartStory {
                                         )
                                         .child(
                                             h_flex()
+                                                .items_center()
                                                 .justify_center()
                                                 .size_6()
                                                 .rounded(badge_radius)
@@ -441,6 +443,7 @@ impl Render for ChartStory {
             .child(Separator::horizontal())
             .child(
                 h_flex()
+                    .items_center()
                     .flex_wrap()
                     .gap_4()
                     .child(chart_container(
@@ -702,6 +705,7 @@ impl Render for ChartStory {
             .child(Separator::horizontal())
             .child(
                 h_flex()
+                    .items_center()
                     .flex_wrap()
                     .gap_4()
                     .child(chart_container(
@@ -749,6 +753,7 @@ impl Render for ChartStory {
             .child(Separator::horizontal())
             .child(
                 h_flex()
+                    .items_center()
                     .flex_wrap()
                     .gap_4()
                     .child(chart_container(
@@ -798,6 +803,7 @@ impl Render for ChartStory {
             .child(Separator::horizontal())
             .child(
                 h_flex()
+                    .items_center()
                     .flex_wrap()
                     .gap_4()
                     .child(chart_container(
@@ -850,7 +856,7 @@ impl Render for ChartStory {
             )
             .child(Separator::horizontal())
             .child(
-                h_flex().flex_wrap().gap_4().children(
+                h_flex().items_center().flex_wrap().gap_4().children(
                     self.tsla_statements
                         .iter()
                         .enumerate()
