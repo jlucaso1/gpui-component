@@ -11,7 +11,7 @@ order: 15
 ## 导入
 
 ```rust
-use gpui_base::input::{InputEvent, Textarea, TextareaState};
+use gpui_kit::base::input::{InputEvent, Textarea, TextareaState};
 ```
 
 ## 固定行数
@@ -56,5 +56,5 @@ let value = notes.read(cx).value();
 ## 可运行示例
 
 ```bash
-cargo run -p gpui-base --example components -- textarea
+cargo run -p gpui-base-examples -- textarea
 ```
