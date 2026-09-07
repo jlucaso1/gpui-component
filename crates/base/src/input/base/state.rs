@@ -2127,7 +2127,9 @@ impl<M: InputModeKind> InputBaseState<M> {
             cx.stop_propagation();
         }
 
-        self.diagnostic_popover = None;
+        if self.diagnostic_popover.take().is_some() {
+            cx.notify();
+        }
     }
 
     pub(super) fn update_scroll_offset(
@@ -4027,6 +4029,123 @@ mod tests {
                 f(crate::input::InputState::new(window, cx))
             })
         }
+    }
+
+    #[gpui::test]
+    fn test_noop_scroll_notifies_diagnostic_dismissal(cx: &mut TestAppContext) {
+        use std::{cell::Cell, rc::Rc};
+
+        cx.update(crate::init);
+        let mut input = None;
+        let window = cx.open_window(size(px(400.), px(100.)), |window, cx| {
+            input = Some(cx.new(|cx| crate::input::EditorState::new(window, cx)));
+            gpui::EmptyView
+        });
+        let input = input.unwrap();
+        input.update(cx, |state, cx| {
+            state.input_bounds = Bounds::new(Point::default(), size(px(100.), px(20.)));
+            state.scroll_size = size(px(100.), px(20.));
+            state.present_diagnostic(crate::input::DiagnosticEntry::default(), cx);
+        });
+        let notifications = Rc::new(Cell::new(0));
+        let count = notifications.clone();
+        let _subscription =
+            cx.update(|cx| cx.observe(&input, move |_, _| count.set(count.get() + 1)));
+
+        window
+            .update(cx, |_, window, cx| {
+                input.update(cx, |state, cx| {
+                    state.on_scroll_wheel(
+                        &ScrollWheelEvent {
+                            delta: gpui::ScrollDelta::Pixels(point(px(0.), px(-40.))),
+                            ..Default::default()
+                        },
+                        window,
+                        cx,
+                    );
+                    assert_eq!(state.scroll_handle.offset(), Point::default());
+                    assert!(state.diagnostic_popover().is_none());
+                });
+            })
+            .unwrap();
+        assert_eq!(
+            notifications.get(),
+            1,
+            "clearing a diagnostic must notify even when scrolling is clamped"
+        );
+        window
+            .update(cx, |_, window, cx| {
+                input.update(cx, |state, cx| {
+                    state.on_scroll_wheel(
+                        &ScrollWheelEvent {
+                            delta: gpui::ScrollDelta::Pixels(point(px(0.), px(-40.))),
+                            ..Default::default()
+                        },
+                        window,
+                        cx,
+                    );
+                });
+            })
+            .unwrap();
+        assert_eq!(notifications.get(), 1, "an unchanged input must stay quiet");
+    }
+
+    #[gpui::test]
+    fn test_cursor_layout_consumer_updates_after_selection(cx: &mut TestAppContext) {
+        use std::{cell::Cell, rc::Rc};
+        struct Panel {
+            input: Entity<crate::input::EditorState>,
+            observed: Rc<Cell<Option<(Bounds<Pixels>, Pixels)>>>,
+        }
+        impl Render for Panel {
+            fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+                self.observed.set(self.input.read(cx).cursor_layout());
+                div().size_full().child(self.input.clone())
+            }
+        }
+        struct Root(Entity<Panel>);
+        impl Render for Root {
+            fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
+                div().size_full().child(
+                    self.0
+                        .clone()
+                        .cached(gpui::StyleRefinement::default().size_full()),
+                )
+            }
+        }
+        cx.update(crate::init);
+        let observed = Rc::new(Cell::new(None));
+        let mut input = None;
+        let window = cx.open_window(size(px(400.), px(100.)), |window, cx| {
+            let state = cx.new(|cx| {
+                let mut state = crate::input::EditorState::new(window, cx);
+                state.set_value("abcdefgh", window, cx);
+                state
+            });
+            input = Some(state.clone());
+            Root(cx.new(|_| Panel {
+                input: state,
+                observed: observed.clone(),
+            }))
+        });
+        cx.run_until_parked();
+        let input = input.unwrap();
+        let before = input.read_with(cx, |state, _| state.cursor_layout());
+        assert_eq!(observed.get(), before);
+        window
+            .update(cx, |_, _, cx| {
+                input.update(cx, |state, cx| state.select_to_with_affinity(3, false, cx));
+            })
+            .unwrap();
+        cx.run_until_parked();
+        window.update(cx, |_, _, cx| cx.notify()).unwrap();
+        let after = input.read_with(cx, |state, _| state.cursor_layout());
+        assert_ne!(after, before, "the caret must actually move");
+        assert_eq!(
+            observed.get(),
+            after,
+            "render consumers must receive the newly painted caret geometry"
+        );
     }
 
     #[gpui::test]

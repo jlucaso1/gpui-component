@@ -2436,7 +2436,11 @@ impl<M: InputModeKind> Element for TextElement<M> {
         self.state.update(cx, |state, cx| {
             let geometry_changed = state.last_bounds != Some(bounds)
                 || state.input_bounds != input_bounds
-                || state.scroll_size != prepaint.scroll_size;
+                || state.scroll_size != prepaint.scroll_size
+                || state.last_layout.as_ref().is_none_or(|layout| {
+                    layout.cursor_bounds != prepaint.last_layout.cursor_bounds
+                        || layout.line_height != prepaint.last_layout.line_height
+                });
             state.last_layout = Some(prepaint.last_layout.clone());
             state.last_bounds = Some(bounds);
             state.last_cursor = Some(state.cursor());
